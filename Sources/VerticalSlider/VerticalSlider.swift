@@ -19,14 +19,14 @@ extension Double {
 }
 
 // Since we have a couple of different elements we’d like to distinguish, we’ll create another struct, CustomSliderComponents, to organize our modifiers by name.
-struct VerticalSliderComponents {
+public struct VerticalSliderComponents {
     let barBottom: VerticalSliderModifier
     let barTop: VerticalSliderModifier
     let knob: VerticalSliderModifier
 }
 
 // Now, let’s create a view modifier called CustomSliderModifier with which we’ll pass element attributes back to our content view.
-struct VerticalSliderModifier: ViewModifier {
+public struct VerticalSliderModifier: ViewModifier {
     enum Name {
         case barBottom
         case barTop
@@ -37,7 +37,7 @@ struct VerticalSliderModifier: ViewModifier {
     let offset: CGFloat
     
     @available(iOS 13.0.0, *)
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         content
             .frame(height: size.height)
             .position(x: size.width*0.5, y: size.height*0.5)
@@ -46,13 +46,13 @@ struct VerticalSliderModifier: ViewModifier {
 }
 
 @available(iOS 13.0, *)
-struct VerticalSlider<Component: View>: View {
+public struct VerticalSlider<Component: View>: View {
     @Binding var value: Double
     var range: (Double, Double)
     var knobHeight: CGFloat?
     let viewBuilder: (VerticalSliderComponents) -> Component
     
-    init(value: Binding<Double>, range: (Double, Double), knobHeight: CGFloat? = nil,
+    public init(value: Binding<Double>, range: (Double, Double), knobHeight: CGFloat? = nil,
          _ viewBuilder: @escaping (VerticalSliderComponents) -> Component
     ) {
         _value = value
@@ -61,7 +61,7 @@ struct VerticalSlider<Component: View>: View {
         self.knobHeight = knobHeight
     }
     
-    var body: some View {
+    public var body: some View {
         return GeometryReader { geometry in
             self.view(geometry: geometry) // function below
         }
