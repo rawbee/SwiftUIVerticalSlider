@@ -20,9 +20,9 @@ extension Double {
 
 // Since we have a couple of different elements we’d like to distinguish, we’ll create another struct, CustomSliderComponents, to organize our modifiers by name.
 public struct VerticalSliderComponents {
-    let barBottom: VerticalSliderModifier
-    let barTop: VerticalSliderModifier
-    let knob: VerticalSliderModifier
+    public let barBottom: VerticalSliderModifier
+    public let barTop: VerticalSliderModifier
+    public let knob: VerticalSliderModifier
 }
 
 // Now, let’s create a view modifier called CustomSliderModifier with which we’ll pass element attributes back to our content view.
