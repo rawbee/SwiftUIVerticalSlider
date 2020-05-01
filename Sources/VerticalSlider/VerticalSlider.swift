@@ -27,7 +27,7 @@ public struct VerticalSliderComponents {
 
 // Now, let’s create a view modifier called CustomSliderModifier with which we’ll pass element attributes back to our content view.
 public struct VerticalSliderModifier: ViewModifier {
-    enum Name {
+    public enum Name {
         case barBottom
         case barTop
         case knob
